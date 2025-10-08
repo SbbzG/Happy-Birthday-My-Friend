@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ceci!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fff8e1, #e3f2fd);
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .paper {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      font-family: 'Georgia', serif;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .paper::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      bottom: -15px;
+      left: -15px;
+      background-image: url('https://i.imgur.com/M9J8t7r.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 30px;
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    /* CONFETTI ANIMATION */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .piece {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background-color: hsl(var(--hue), 70%, 60%);
+      animation: fall 4s linear infinite;
+      opacity: 0.9;
+      border-radius: 2px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti"></div>
+  <div class="container">
+    <div class="paper">
+      <p>Hey! I just wanted to take a moment to tell you how much I appreciate you and how happy I am to have you as a friend, thats why i wish you a:.</p>
+      <p><strong>HAPPY BIRTHDAY HERMANITAAAAAAAAAAAAAAAA!</strong></p>
+      <p>You’ve always been such a kind, funny, and genuine person, and I’m really lucky to know you. I hope this day brings you nothing but good vibes, laughter, and lots of sweet moments.</p>
+      <p>Even though I couldn’t get you anything fancy, I wanted to make something simple but meaningful — something that shows how much I care. You truly deserve the best today and always!</p>
+      <p>Wishing you another amazing year ahead, full of new adventures, good memories, and people who make you smile as much as you make others smile, LIKE YOU MAKE ME, im happy i found you (most likely life gathered us without advise jajaja)
+         HAPPY BIRTHDAY OLD LADYYYY, its funny to call ou like that even tho you are very young :D, keep it up hermanita! i know there are a lot of nostalgic memories, but the beauty of life is: YOU CAN MAKE MORE MEMORIES,
+          i hope i can meet you some day so we can make memories togehter, but i guess we will have to wait for that, by now i just can say i will make everything i can to fulfill that dream.</p>
+      <div class="signature">With love and good vibes,<br>Your lil hermanita 💫</div>
+    </div>
+  </div>
+
+  <script>
+    // Confetti generator
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.className = 'piece';
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.setProperty('--hue', Math.random() * 360);
+      confetti.style.animationDuration = (3 + Math.random() * 2) + 's';
+      document.querySelector('.confetti').appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+    setInterval(createConfetti, 100);
+  </script>
+</body>
+</html>
